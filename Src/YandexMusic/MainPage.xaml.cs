@@ -36,7 +36,7 @@ namespace YandexMusicUWP
         /// <summary>
         /// Вызывается при загрузке страницы
         /// </summary>
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        protected override /*async*/ void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
@@ -45,11 +45,11 @@ namespace YandexMusicUWP
             if (!string.IsNullOrEmpty(savedToken))
             {
                 // Пытаемся авторизоваться по токену
-                bool success = await _musicService.AuthorizeByTokenAsync(savedToken);
-                if (success)
+                var success = /*await*/ _musicService.AuthorizeByTokenAsync(savedToken);
+                if (success.Result == true)
                 {
                     // Загружаем популярные треки
-                    await LoadPopularTracksAsync();
+                    /*await*/ LoadPopularTracksAsync();
                 }
             }
         }

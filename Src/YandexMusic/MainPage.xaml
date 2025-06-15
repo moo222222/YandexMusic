@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:YandexMusicUWP.Models"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    >
 
     <Grid>
         <Grid.RowDefinitions>
@@ -148,7 +148,8 @@
                 <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
                     <TextBlock Text="0:00" Foreground="{StaticResource YandexGrayBrush}" FontSize="12" VerticalAlignment="Center"/>
                     <Slider Width="300" Margin="8,0" VerticalAlignment="Center"/>
-                    <TextBlock Text="{Binding _currentTrack.FormattedDuration, FallbackValue='0:00'}" Foreground="{StaticResource YandexGrayBrush}" FontSize="12" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding _currentTrack.FormattedDuration, FallbackValue='0:00'}" 
+                               Foreground="{StaticResource YandexGrayBrush}" FontSize="12" VerticalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
 
