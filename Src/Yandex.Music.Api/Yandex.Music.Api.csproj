@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FC36E655-F10D-4C10-8105-FAFD247D1234}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yandex.Music.Api</RootNamespace>
+    <AssemblyName>Yandex.Music.Api</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="API\YAlbumAPI.cs" />
+    <Compile Include="API\YAlbumAPIAsync.cs" />
+    <Compile Include="API\YArtistAPI.cs" />
+    <Compile Include="API\YArtistAPIAsync.cs" />
+    <Compile Include="API\YCommonAPI.cs" />
+    <Compile Include="API\YLabelAPI.cs" />
+    <Compile Include="API\YLabelAPIAsync.cs" />
+    <Compile Include="API\YLandingAPI.cs" />
+    <Compile Include="API\YLandingAPIAsync.cs" />
+    <Compile Include="API\YLibraryAPI.cs" />
+    <Compile Include="API\YLibraryAPIAsync.cs" />
+    <Compile Include="API\YPlaylistAPI.cs" />
+    <Compile Include="API\YPlaylistAPIAsync.cs" />
+    <Compile Include="API\YQueueAPI.cs" />
+    <Compile Include="API\YQueueAPIAsync.cs" />
+    <Compile Include="API\YRadioAPI.cs" />
+    <Compile Include="API\YRadioAPIAsync.cs" />
+    <Compile Include="API\YSearchAPI.cs" />
+    <Compile Include="API\YSearchAPIAsync.cs" />
+    <Compile Include="API\YTrackAPI.cs" />
+    <Compile Include="API\YTrackAPIAsync.cs" />
+    <Compile Include="API\YUgcAPI.cs" />
+    <Compile Include="API\YUgcAPIAsync.cs" />
+    <Compile Include="API\YUserAPI.cs" />
+    <Compile Include="API\YUserAPIAsync.cs" />
+    <Compile Include="API\YYnisonAPI.cs" />
+    <Compile Include="Common\AuthStorage.cs" />
+    <Compile Include="Common\DataDownloader.cs" />
+    <Compile Include="Common\Debug\DebugSettings.cs" />
+    <Compile Include="Common\Debug\Writer\DefaultDebugWriter.cs" />
+    <Compile Include="Common\Debug\Writer\IDebugWriter.cs" />
+    <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Common\Providers\CommonRequestProvider.cs" />
+    <Compile Include="Common\Providers\DefaultRequestProvider.cs" />
+    <Compile Include="Common\Providers\IRequestProvider.cs" />
+    <Compile Include="Common\Providers\MockRequestProvider.cs" />
+    <Compile Include="Common\Ynison\UpperSnakeCaseNamingStrategy.cs" />
+    <Compile Include="Common\Ynison\YnisonPlayer.cs" />
+    <Compile Include="Common\Ynison\YnisonWebSocket.cs" />
+    <Compile Include="Extensions\API\YAlbumExtensions.cs" />
+    <Compile Include="Extensions\API\YAlbumExtensionsAsync.cs" />
+    <Compile Include="Extensions\API\YArtistExtensions.cs" />
+    <Compile Include="Extensions\API\YArtistExtensionsAsync.cs" />
+    <Compile Include="Extensions\API\YPlaylistExtensions.cs" />
+    <Compile Include="Extensions\API\YPlaylistExtensionsAsync.cs" />
+    <Compile Include="Extensions\API\YStationResultExtensions.cs" />
+    <Compile Include="Extensions\API\YStationResultExtensionsAsync.cs" />
+    <Compile Include="Extensions\API\YTrackExtensions.cs" />
+    <Compile Include="Extensions\API\YTrackExtensionsAsync.cs" />
+    <Compile Include="Extensions\HttpRequestHeaderExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Models\Account\YAccessToken.cs" />
+    <Compile Include="Models\Account\YAccount.cs" />
+    <Compile Include="Models\Account\YAccountResult.cs" />
+    <Compile Include="Models\Account\YAuthBase.cs" />
+    <Compile Include="Models\Account\YAuthCaptcha.cs" />
+    <Compile Include="Models\Account\YAuthCaptchaError.cs" />
+    <Compile Include="Models\Account\YAuthCaptchaErrorCode.cs" />
+    <Compile Include="Models\Account\YAuthCaptchaOptions.cs" />
+    <Compile Include="Models\Account\YAuthCaptchaVoice.cs" />
+    <Compile Include="Models\Account\YAuthError.cs" />
+    <Compile Include="Models\Account\YAuthLetter.cs" />
+    <Compile Include="Models\Account\YAuthLetterStatus.cs" />
+    <Compile Include="Models\Account\YAuthMethod.cs" />
+    <Compile Include="Models\Account\YAuthQr.cs" />
+    <Compile Include="Models\Account\YAuthQrStatus.cs" />
+    <Compile Include="Models\Account\YAuthStatus.cs" />
+    <Compile Include="Models\Account\YAuthToken.cs" />
+    <Compile Include="Models\Account\YAuthTypes.cs" />
+    <Compile Include="Models\Account\YBar.cs" />
+    <Compile Include="Models\Account\YLoginInfo.cs" />
+    <Compile Include="Models\Account\YPhoneNumber.cs" />
+    <Compile Include="Models\Account\YShortAccountInfo.cs" />
+    <Compile Include="Models\Album\YAlbum.cs" />
+    <Compile Include="Models\Artist\YArtist.cs" />
+    <Compile Include="Models\Artist\YArtistBriefInfo.cs" />
+    <Compile Include="Models\Artist\YArtistCounts.cs" />
+    <Compile Include="Models\Artist\YArtistRatings.cs" />
+    <Compile Include="Models\Artist\YBandlinkScannerLink.cs" />
+    <Compile Include="Models\Artist\YConcert.cs" />
+    <Compile Include="Models\Artist\YDeprecation.cs" />
+    <Compile Include="Models\Artist\YMetroStation.cs" />
+    <Compile Include="Models\Artist\YTracksPage.cs" />
+    <Compile Include="Models\Common\Cover\YCover.cs" />
+    <Compile Include="Models\Common\Cover\YCoverColor.cs" />
+    <Compile Include="Models\Common\Cover\YCoverError.cs" />
+    <Compile Include="Models\Common\Cover\YCoverImage.cs" />
+    <Compile Include="Models\Common\Cover\YCoverMosaic.cs" />
+    <Compile Include="Models\Common\Cover\YCoverPic.cs" />
+    <Compile Include="Models\Common\Cover\YCoverType.cs" />
+    <Compile Include="Models\Common\YBaseModel.cs" />
+    <Compile Include="Models\Common\YButton.cs" />
+    <Compile Include="Models\Common\YChart.cs" />
+    <Compile Include="Models\Common\YClip.cs" />
+    <Compile Include="Models\Common\YCloseButtonStyles.cs" />
+    <Compile Include="Models\Common\YCountsTracks.cs" />
+    <Compile Include="Models\Common\YCustomWave.cs" />
+    <Compile Include="Models\Common\YDerivedColors.cs" />
+    <Compile Include="Models\Common\YDescription.cs" />
+    <Compile Include="Models\Common\YError.cs" />
+    <Compile Include="Models\Common\YErrorResponse.cs" />
+    <Compile Include="Models\Common\YExecutionContext.cs" />
+    <Compile Include="Models\Common\YExtraAction.cs" />
+    <Compile Include="Models\Common\YId.cs" />
+    <Compile Include="Models\Common\YInvocationInfo.cs" />
+    <Compile Include="Models\Common\YLabel.cs" />
+    <Compile Include="Models\Common\YLikedCounts.cs" />
+    <Compile Include="Models\Common\YLink.cs" />
+    <Compile Include="Models\Common\YLinkType.cs" />
+    <Compile Include="Models\Common\YLyrics.cs" />
+    <Compile Include="Models\Common\YLyricsInfo.cs" />
+    <Compile Include="Models\Common\YMajor.cs" />
+    <Compile Include="Models\Common\YMasterHub.cs" />
+    <Compile Include="Models\Common\YMetaType.cs" />
+    <Compile Include="Models\Common\YOwner.cs" />
+    <Compile Include="Models\Common\YPager.cs" />
+    <Compile Include="Models\Common\YPeriod.cs" />
+    <Compile Include="Models\Common\YPermissions.cs" />
+    <Compile Include="Models\Common\YPhone.cs" />
+    <Compile Include="Models\Common\YPlus.cs" />
+    <Compile Include="Models\Common\YPodcastEpisodeType.cs" />
+    <Compile Include="Models\Common\YPrerolls.cs" />
+    <Compile Include="Models\Common\YPrice.cs" />
+    <Compile Include="Models\Common\YProduct.cs" />
+    <Compile Include="Models\Common\YProductType.cs" />
+    <Compile Include="Models\Common\YProfile.cs" />
+    <Compile Include="Models\Common\YReminder.cs" />
+    <Compile Include="Models\Common\YResponse.cs" />
+    <Compile Include="Models\Common\YRevision.cs" />
+    <Compile Include="Models\Common\YSearchType.cs" />
+    <Compile Include="Models\Common\YSortOrder.cs" />
+    <Compile Include="Models\Common\YStats.cs" />
+    <Compile Include="Models\Common\YStorageDownloadFile.cs" />
+    <Compile Include="Models\Common\YStyle.cs" />
+    <Compile Include="Models\Common\YSubscription.cs" />
+    <Compile Include="Models\Common\YSubscriptionService.cs" />
+    <Compile Include="Models\Common\YTag.cs" />
+    <Compile Include="Models\Common\YTrackDownloadInfo.cs" />
+    <Compile Include="Models\Common\YTrackId.cs" />
+    <Compile Include="Models\Common\YTrackSharingFlag.cs" />
+    <Compile Include="Models\Common\YTrackSource.cs" />
+    <Compile Include="Models\Common\YTrailer.cs" />
+    <Compile Include="Models\Common\YUser.cs" />
+    <Compile Include="Models\Common\YVideo.cs" />
+    <Compile Include="Models\Common\YVinyl.cs" />
+    <Compile Include="Models\Feed\Event\YArtistsFromHistory.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEvent.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventAlbums.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventArtist.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventArtists.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventArtistWithArtists.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventGenreAlbums.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventGenreTracks.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventGenreTracksTop.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventLikeTrack.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventNotification.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventPromotion.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventPromotionType.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventSimilarArtists.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventSimilarGenre.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventTitle.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventTitled.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventTitleType.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventTracks.cs" />
+    <Compile Include="Models\Feed\Event\YFeedEventType.cs" />
+    <Compile Include="Models\Feed\Event\YFeedPromotion.cs" />
+    <Compile Include="Models\Feed\YFeed.cs" />
+    <Compile Include="Models\Feed\YFeedDay.cs" />
+    <Compile Include="Models\Feed\YFeedDayTrackWithAds.cs" />
+    <Compile Include="Models\Feed\YFeedDayTrackWithAdsType.cs" />
+    <Compile Include="Models\Feed\YHeadline.cs" />
+    <Compile Include="Models\Feed\YHeadlineType.cs" />
+    <Compile Include="Models\Label\YLabelAlbums.cs" />
+    <Compile Include="Models\Label\YLabelArtists.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\Context\YPlayContext.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\Context\YPlayContextAlbum.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\Context\YPlayContextArtist.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\Context\YPlayContextPlaylist.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\Context\YPlayContextType.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YAlbumMenuItem.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YBlockEntity.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YCategory.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YChartItem.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YChartProgress.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YClientWidget.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YLandingEntityAlbum.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YLandingEntityAlbumMenuItem.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YLandingEntityCategory.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YLandingEntityChart.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YLandingEntityClientWidget.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YLandingEntityPersonalPlaylist.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YLandingEntityPlayContext.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YLandingEntityPlaylist.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YLandingEntityPodcast.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YLandingEntityPromotion.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YLandingEntityStation.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YLandingStation.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YPersonalPlaylist.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YPodcast.cs" />
+    <Compile Include="Models\Landing\Entity\Entities\YPromotion.cs" />
+    <Compile Include="Models\Landing\Entity\YLandingEntity.cs" />
+    <Compile Include="Models\Landing\Entity\YLandingEntityType.cs" />
+    <Compile Include="Models\Landing\YChildrenLanding.cs" />
+    <Compile Include="Models\Landing\YLanding.cs" />
+    <Compile Include="Models\Landing\YLandingBlock.cs" />
+    <Compile Include="Models\Landing\YLandingBlockData.cs" />
+    <Compile Include="Models\Landing\YLandingBlockType.cs" />
+    <Compile Include="Models\Landing\YLandingHeaderButton.cs" />
+    <Compile Include="Models\Landing\YLandingHeaderSpecialBlock.cs" />
+    <Compile Include="Models\Landing\YLandingPlayContext.cs" />
+    <Compile Include="Models\Library\YLibrary.cs" />
+    <Compile Include="Models\Library\YLibraryAlbum.cs" />
+    <Compile Include="Models\Library\YLibraryPlaylists.cs" />
+    <Compile Include="Models\Library\YLibrarySection.cs" />
+    <Compile Include="Models\Library\YLibrarySectionType.cs" />
+    <Compile Include="Models\Library\YLibraryTrack.cs" />
+    <Compile Include="Models\Library\YLibraryTracks.cs" />
+    <Compile Include="Models\Library\YListenedTrack.cs" />
+    <Compile Include="Models\Library\YRecentlyListened.cs" />
+    <Compile Include="Models\Library\YRecentlyListenedContext.cs" />
+    <Compile Include="Models\Playlist\YArtistPlaylistType.cs" />
+    <Compile Include="Models\Playlist\YGeneratedPlaylistType.cs" />
+    <Compile Include="Models\Playlist\YPlaylist.cs" />
+    <Compile Include="Models\Playlist\YPlaylistChange.cs" />
+    <Compile Include="Models\Playlist\YPlaylistChangeType.cs" />
+    <Compile Include="Models\Playlist\YPlaylistMadeFor.cs" />
+    <Compile Include="Models\Playlist\YPlaylistPlayCounter.cs" />
+    <Compile Include="Models\Playlist\YPlaylistUidPair.cs" />
+    <Compile Include="Models\Queue\YContext.cs" />
+    <Compile Include="Models\Queue\YNewQueue.cs" />
+    <Compile Include="Models\Queue\YQueue.cs" />
+    <Compile Include="Models\Queue\YQueueItem.cs" />
+    <Compile Include="Models\Queue\YQueueItemsContainer.cs" />
+    <Compile Include="Models\Queue\YUpdatedQueue.cs" />
+    <Compile Include="Models\Radio\Restriction\YRestriction.cs" />
+    <Compile Include="Models\Radio\Restriction\YRestrictionDiscreteScale.cs" />
+    <Compile Include="Models\Radio\Restriction\YRestrictionEnum.cs" />
+    <Compile Include="Models\Radio\Restriction\YRestrictionType.cs" />
+    <Compile Include="Models\Radio\Restriction\YRestrictionValue.cs" />
+    <Compile Include="Models\Radio\YAdParams.cs" />
+    <Compile Include="Models\Radio\YBrand.cs" />
+    <Compile Include="Models\Radio\YSequenceItem.cs" />
+    <Compile Include="Models\Radio\YStation.cs" />
+    <Compile Include="Models\Radio\YStationData.cs" />
+    <Compile Include="Models\Radio\YStationDescription.cs" />
+    <Compile Include="Models\Radio\YStationFeedback.cs" />
+    <Compile Include="Models\Radio\YStationFeedbackType.cs" />
+    <Compile Include="Models\Radio\YStationIcon.cs" />
+    <Compile Include="Models\Radio\YStationId.cs" />
+    <Compile Include="Models\Radio\YStationRestrictions.cs" />
+    <Compile Include="Models\Radio\YStationRestrictions2.cs" />
+    <Compile Include="Models\Radio\YStationsDashboard.cs" />
+    <Compile Include="Models\Radio\YStationSequence.cs" />
+    <Compile Include="Models\Radio\YStationSettings.cs" />
+    <Compile Include="Models\Radio\YStationSettings2.cs" />
+    <Compile Include="Models\Radio\YTrackParameters.cs" />
+    <Compile Include="Models\Search\Album\YSearchAlbumModel.cs" />
+    <Compile Include="Models\Search\Artist\YSearchArtist.cs" />
+    <Compile Include="Models\Search\Artist\YSearchArtistCounter.cs" />
+    <Compile Include="Models\Search\Artist\YSearchArtistModel.cs" />
+    <Compile Include="Models\Search\Playlist\YSearchPlaylistModel.cs" />
+    <Compile Include="Models\Search\Track\YSearchTrackModel.cs" />
+    <Compile Include="Models\Search\Track\YSearchTrackType.cs" />
+    <Compile Include="Models\Search\User\YSearchUserModel.cs" />
+    <Compile Include="Models\Search\Video\YSearchVideoModel.cs" />
+    <Compile Include="Models\Search\YSearch.cs" />
+    <Compile Include="Models\Search\YSearchBest.cs" />
+    <Compile Include="Models\Search\YSearchResult.cs" />
+    <Compile Include="Models\Search\YSearchSuggest.cs" />
+    <Compile Include="Models\Track\YTrack.cs" />
+    <Compile Include="Models\Track\YTrackAlbumPair.cs" />
+    <Compile Include="Models\Track\YTrackContainer.cs" />
+    <Compile Include="Models\Track\YTrackFade.cs" />
+    <Compile Include="Models\Track\YTrackNormalization.cs" />
+    <Compile Include="Models\Track\YTrackNormalizationR128.cs" />
+    <Compile Include="Models\Track\YTrackPosition.cs" />
+    <Compile Include="Models\Track\YTrackSimilar.cs" />
+    <Compile Include="Models\Track\YTrackSupplement.cs" />
+    <Compile Include="Models\Ugc\YUgcUpload.cs" />
+    <Compile Include="Models\Ynison\Messages\YYnisonErrorMessage.cs" />
+    <Compile Include="Models\Ynison\Messages\YYnisonMessage.cs" />
+    <Compile Include="Models\Ynison\Messages\YYnisonMessageType.cs" />
+    <Compile Include="Models\Ynison\Messages\YYnisonUpdateFullStateMessage.cs" />
+    <Compile Include="Models\Ynison\Messages\YYnisonUpdateMessage.cs" />
+    <Compile Include="Models\Ynison\Messages\YYnisonUpdatePlayerStateMessage.cs" />
+    <Compile Include="Models\Ynison\Wave\YYnisonEntityOptions.cs" />
+    <Compile Include="Models\Ynison\Wave\YYnisonPhonotekaSource.cs" />
+    <Compile Include="Models\Ynison\Wave\YYnisonTrackSource.cs" />
+    <Compile Include="Models\Ynison\Wave\YYnisonWaveEntityOptional.cs" />
+    <Compile Include="Models\Ynison\Wave\YYnisonWaveQueue.cs" />
+    <Compile Include="Models\Ynison\Wave\YYnisonWaveSource.cs" />
+    <Compile Include="Models\Ynison\YYnisonDevice.cs" />
+    <Compile Include="Models\Ynison\YYnisonDeviceCapabilities.cs" />
+    <Compile Include="Models\Ynison\YYnisonDeviceFull.cs" />
+    <Compile Include="Models\Ynison\YYnisonDeviceInfo.cs" />
+    <Compile Include="Models\Ynison\YYnisonDeviceVolumeInfo.cs" />
+    <Compile Include="Models\Ynison\YYnisonEntityContext.cs" />
+    <Compile Include="Models\Ynison\YYnisonEntityType.cs" />
+    <Compile Include="Models\Ynison\YYnisonError.cs" />
+    <Compile Include="Models\Ynison\YYnisonErrorDetails.cs" />
+    <Compile Include="Models\Ynison\YYnisonFullState.cs" />
+    <Compile Include="Models\Ynison\YYnisonId.cs" />
+    <Compile Include="Models\Ynison\YYnisonKeepAliveParams.cs" />
+    <Compile Include="Models\Ynison\YYnisonPlayableItem.cs" />
+    <Compile Include="Models\Ynison\YYnisonPlayableItemType.cs" />
+    <Compile Include="Models\Ynison\YYnisonPlayerQueue.cs" />
+    <Compile Include="Models\Ynison\YYnisonPlayerState.cs" />
+    <Compile Include="Models\Ynison\YYnisonPlayerStateStatus.cs" />
+    <Compile Include="Models\Ynison\YYnisonQueue.cs" />
+    <Compile Include="Models\Ynison\YYnisonQueueOptions.cs" />
+    <Compile Include="Models\Ynison\YYnisonRedirect.cs" />
+    <Compile Include="Models\Ynison\YYnisonSession.cs" />
+    <Compile Include="Models\Ynison\YYnisonState.cs" />
+    <Compile Include="Models\Ynison\YYnisonTrackInfo.cs" />
+    <Compile Include="Models\Ynison\YYnisonVersion.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\Account\YGetAuthAppPasswordBuilder.cs" />
+    <Compile Include="Requests\Account\YGetAuthCaptchaBuilder.cs" />
+    <Compile Include="Requests\Account\YGetAuthCookiesBuilder.cs" />
+    <Compile Include="Requests\Account\YGetAuthInfoBuilder.cs" />
+    <Compile Include="Requests\Account\YGetAuthLetterBuilder.cs" />
+    <Compile Include="Requests\Account\YGetAuthLoginCaptchaBuilder.cs" />
+    <Compile Include="Requests\Account\YGetAuthLoginLetterBuilder.cs" />
+    <Compile Include="Requests\Account\YGetAuthLoginQRBuilder.cs" />
+    <Compile Include="Requests\Account\YGetAuthLoginUserBuilder.cs" />
+    <Compile Include="Requests\Account\YGetAuthMethodsBuilder.cs" />
+    <Compile Include="Requests\Account\YGetAuthQRBuilder.cs" />
+    <Compile Include="Requests\Account\YGetLoginInfoBuilder.cs" />
+    <Compile Include="Requests\Account\YGetMusicTokenBuilder.cs" />
+    <Compile Include="Requests\Account\YGetShortAccountInifoBuilder.cs" />
+    <Compile Include="Requests\Album\YGetAlbumBuilder.cs" />
+    <Compile Include="Requests\Album\YGetAlbumsBuilder.cs" />
+    <Compile Include="Requests\Artist\YGetArtistBuilder.cs" />
+    <Compile Include="Requests\Artist\YGetArtistsBuilder.cs" />
+    <Compile Include="Requests\Artist\YGetArtistTrackBuilder.cs" />
+    <Compile Include="Requests\Common\Attributes\YApiRequestAttribute.cs" />
+    <Compile Include="Requests\Common\Attributes\YBasePathRequestAttribute.cs" />
+    <Compile Include="Requests\Common\Attributes\YLoginRequestAttribute.cs" />
+    <Compile Include="Requests\Common\Attributes\YMobileProxyRequestAttribute.cs" />
+    <Compile Include="Requests\Common\Attributes\YOAuthMobileAttribute.cs" />
+    <Compile Include="Requests\Common\Attributes\YOAuthRequestAttribute.cs" />
+    <Compile Include="Requests\Common\Attributes\YPassportRequestAttribute.cs" />
+    <Compile Include="Requests\Common\Attributes\YRequestAttribute.cs" />
+    <Compile Include="Requests\Common\Attributes\YWebApiRequestAttribute.cs" />
+    <Compile Include="Requests\Common\HttpContext.cs" />
+    <Compile Include="Requests\Common\YConstants.cs" />
+    <Compile Include="Requests\Common\YRequest.cs" />
+    <Compile Include="Requests\Common\YRequestBuilder.cs" />
+    <Compile Include="Requests\Feed\YGetFeedBuilder.cs" />
+    <Compile Include="Requests\Label\YGetLabelAlbumsBuilder.cs" />
+    <Compile Include="Requests\Label\YGetLabelArtistsBuilder.cs" />
+    <Compile Include="Requests\Landing\YGetChildrenLandingBuilder.cs" />
+    <Compile Include="Requests\Landing\YGetLandingBuilder.cs" />
+    <Compile Include="Requests\Library\YGetLibraryRecentlyListenedBuilder.cs" />
+    <Compile Include="Requests\Library\YGetLibrarySectionBuilder.cs" />
+    <Compile Include="Requests\Library\YLibraryAddBuilder.cs" />
+    <Compile Include="Requests\Library\YLibraryRemoveBuilder.cs" />
+    <Compile Include="Requests\Playlist\YGetPlaylistBuilder.cs" />
+    <Compile Include="Requests\Playlist\YGetPlaylistByUuidBuilder.cs" />
+    <Compile Include="Requests\Playlist\YGetPlaylistFavoritesBuilder.cs" />
+    <Compile Include="Requests\Playlist\YGetPlaylistsBuilder.cs" />
+    <Compile Include="Requests\Playlist\YPlaylistChangeBuilder.cs" />
+    <Compile Include="Requests\Playlist\YPlaylistCreateBuilder.cs" />
+    <Compile Include="Requests\Playlist\YPlaylistRemoveBuilder.cs" />
+    <Compile Include="Requests\Playlist\YPlaylistRenameBuilder.cs" />
+    <Compile Include="Requests\Queue\YGetQueueBuilder.cs" />
+    <Compile Include="Requests\Queue\YQueueCreateBuilder.cs" />
+    <Compile Include="Requests\Queue\YQueuesListBuilder.cs" />
+    <Compile Include="Requests\Queue\YQueueUpdatePositionBuilder.cs" />
+    <Compile Include="Requests\Radio\YGetStationBuilder.cs" />
+    <Compile Include="Requests\Radio\YGetStationsBuilder.cs" />
+    <Compile Include="Requests\Radio\YGetStationsDashboardBuilder.cs" />
+    <Compile Include="Requests\Radio\YGetStationTracksBuilder.cs" />
+    <Compile Include="Requests\Radio\YSetSettings2Builder.cs" />
+    <Compile Include="Requests\Radio\YSetStationFeedbackBuilder.cs" />
+    <Compile Include="Requests\Search\YSearchBuilder.cs" />
+    <Compile Include="Requests\Search\YSearchSuggestBuilder.cs" />
+    <Compile Include="Requests\Track\YGetTracksBuilder.cs" />
+    <Compile Include="Requests\Track\YGetTrackSimilarBuilder.cs" />
+    <Compile Include="Requests\Track\YGetTrackSupplementBuilder.cs" />
+    <Compile Include="Requests\Track\YSendTrackInfoBuilder.cs" />
+    <Compile Include="Requests\Track\YStorageDownloadFileBuilder.cs" />
+    <Compile Include="Requests\Track\YTrackDownloadInfoBuilder.cs" />
+    <Compile Include="Requests\Ugc\YUgcGetUploadLinkBuilder.cs" />
+    <Compile Include="Requests\Ugc\YUgcUploadBuilder.cs" />
+    <Compile Include="YandexMusicApi.cs" />
+    <EmbeddedResource Include="Properties\Yandex.Music.Api.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.14</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.Memory">
+      <Version>4.6.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.Net.Http.Json">
+      <Version>9.0.6</Version>
+    </PackageReference>
+    <PackageReference Include="System.Text.Json">
+      <Version>9.0.6</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks.Extensions">
+      <Version>4.6.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
