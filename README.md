@@ -7,10 +7,12 @@ My 2nd attempt to remake YandexMusic uwp pp. This is planned as very lite editio
 ## Abstract
 At now this thing allows you to get some music analytics music through Yandex integration in the simplest uwp app for Windows 10 / 11.
 
+I decided to share my dialogue with Trae AI.. how to create Yandex Music uwp app "template-prototype". ;)
+So, look at Wiki: https://github.com/mediaexplorer74/YandexMusic/wiki/
 
 ## Solution (app) structure
 - Special uap version of Yandex.Music.Api lib (Win SDK 16299 used. draft)
-- Ato-gererated Yandex.Music wp app (Win SDK 16299 used. draft)
+- Auto-gererated Yandex.Music wp app (Win SDK 16299 used. draft)
 
 
 ## Status 
