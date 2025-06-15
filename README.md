@@ -37,10 +37,9 @@ Feel free to fork or improve this project :)
 
 2. .NET Standard 2.0
 
-3. Win SDK 16299 / 15063
+3. Win SDK 16299 ( 16299->15063 magic not implemented yet)
 
-## Test scenario
- 
+
 
 ## Project status
 - phase 1 Intro/RnD +- 30/100
@@ -50,6 +49,16 @@ Feel free to fork or improve this project :)
 - phase 5 Tests/Intro   - 5/100
 
 
+## Bugs/Errors
+- User email-password login damaged at now (only token login accepted)
+- Login button can't change its state after auth success
+- Logout impossible (not realized)
+- Music playback stopped after 10 s (?)
+- Time indicator damaged
+- Autoplay (after track tap) damaged
+- Volube switch damaged
+- Popular track list mulfunction
+
 
 ## Contribute!
 There's still a TON of things missing from this proof-of-concept (MVP) and areas of improvement 
@@ -58,6 +67,11 @@ There's still a TON of things missing from this proof-of-concept (MVP) and areas
 - https://github.com/Trae-AI/ GitHub "Trae-AI Corner" :)
 - [K1llMan Yandex.Music.Api C# Project](https://github.com/K1llMan/Yandex.Music.Api)
 
+
+## TODO
+- Add Win SDK 15063 compatibility (use special native compiling magic).
+
+
 ## License
 Distributed under the MIT License.
 
@@ -65,7 +79,7 @@ Distributed under the MIT License.
 As is. No support. RnD only. DIY.
 
 ## .
-[m][e] June, 15 2025
+[m][e] June, 16 2025
 
 ![Logo](Images/footer.png)
 

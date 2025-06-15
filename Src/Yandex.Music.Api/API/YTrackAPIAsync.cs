@@ -20,7 +20,7 @@ namespace Yandex.Music.Api.API
     {
         #region Вспомогательные функции
 
-        private string BuildLinkForDownload(YTrackDownloadInfo mainDownloadResponse, YStorageDownloadFile storageDownload)
+        public string BuildLinkForDownload(YTrackDownloadInfo mainDownloadResponse, YStorageDownloadFile storageDownload)
         {
             string path = storageDownload.Path;
             string host = storageDownload.Host;
@@ -300,7 +300,7 @@ namespace Yandex.Music.Api.API
             return ExtractStreamAsync(storage, track.GetKey().ToString());
         }
 
-        public async Task GetDownloadUrlAsync(AuthStorage auth, object downloadInfo)
+        /*public async Task GetDownloadUrlAsync(AuthStorage auth, object downloadInfo)
         {
             throw new NotImplementedException();
         }
@@ -308,7 +308,7 @@ namespace Yandex.Music.Api.API
         public async Task GetDownloadInfoAsync(AuthStorage auth, string trackId)
         {
             throw new NotImplementedException();
-        }
+        }*/
 
         #endregion В поток
 

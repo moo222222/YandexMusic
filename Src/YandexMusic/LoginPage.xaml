@@ -30,7 +30,7 @@
             
             <PasswordBox x:Name="PasswordBox" Header="Пароль" Margin="0,12,0,0" PlaceholderText="Введите пароль"/>
             
-            <CheckBox x:Name="RememberMeCheckBox" Content="Запомнить меня" Margin="0,12,0,0"/>
+            <!--CheckBox x:Name="RememberMeCheckBox" Content="Запомнить меня" Margin="0,12,0,0"/-->
             
             <Button x:Name="LoginButton" Content="Войти" Style="{StaticResource YandexButtonStyle}" 
                     HorizontalAlignment="Stretch" Margin="0,24,0,0" Click="LoginButton_Click"/>

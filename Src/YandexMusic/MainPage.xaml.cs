@@ -1,5 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
+using Windows.Media.Playback;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -36,7 +37,7 @@ namespace YandexMusicUWP
         /// <summary>
         /// Вызывается при загрузке страницы
         /// </summary>
-        protected override /*async*/ void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
@@ -45,11 +46,11 @@ namespace YandexMusicUWP
             if (!string.IsNullOrEmpty(savedToken))
             {
                 // Пытаемся авторизоваться по токену
-                var success = /*await*/ _musicService.AuthorizeByTokenAsync(savedToken);
-                if (success.Result == true)
+                bool success = await _musicService.AuthorizeByTokenAsync(savedToken);
+                if (success == true)
                 {
                     // Загружаем популярные треки
-                    /*await*/ LoadPopularTracksAsync();
+                    await LoadPopularTracksAsync();
                 }
             }
         }
@@ -73,8 +74,11 @@ namespace YandexMusicUWP
                 string streamUrl = await _musicService.GetTrackStreamUrlAsync(_currentTrack.Id);
                 if (!string.IsNullOrEmpty(streamUrl))
                 {
-                    // Здесь будет код для воспроизведения трека
-                    // Например, с использованием MediaElement
+                    // код для воспроизведения трека
+                    MediaPlayer player = BackgroundMediaPlayer.Current;
+                    player.SetUriSource(new Uri(streamUrl));
+                    player.Play();
+
                 }
             }
         }
@@ -108,7 +112,7 @@ namespace YandexMusicUWP
             var tracks = await _musicService.GetPopularTracksAsync();
             _tracks = tracks;
             // Обновляем список треков в UI
-            // PopularTracksList.ItemsSource = _tracks;
+            TracksListView.ItemsSource = _tracks;
         }
 
         /// <summary>
@@ -122,7 +126,7 @@ namespace YandexMusicUWP
                 var tracks = await _musicService.SearchTracksAsync(query);
                 _tracks = tracks;
                 // Обновляем список треков в UI
-                // PopularTracksList.ItemsSource = _tracks;
+                TracksListView.ItemsSource = _tracks;
             }
         }
     }

@@ -49,7 +49,7 @@ namespace YandexMusicUWP
                 }
 
                 // Сохраняем токен, если пользователь выбрал "Запомнить меня"
-                if (RememberMeCheckBox.IsChecked == true)
+                if (true)//(RememberMeCheckBox.IsChecked == true)
                 {
                     _musicService.SaveToken();
                 }
@@ -107,9 +107,9 @@ namespace YandexMusicUWP
                     }
 
                     // Сохраняем токен, если пользователь выбрал "Запомнить меня"
-                    if (RememberMeCheckBox.IsChecked == true)
+                    if (true)//(RememberMeCheckBox.IsChecked == true)
                     {
-                        _musicService.SaveToken();
+                        _musicService.SaveToken(token);
                     }
 
                     // Переходим на главную страницу
@@ -163,7 +163,7 @@ namespace YandexMusicUWP
             string savedToken = _musicService.LoadToken();
             if (!string.IsNullOrEmpty(savedToken))
             {
-                RememberMeCheckBox.IsChecked = true;
+                //RememberMeCheckBox.IsChecked = true;
             }
         }
     }

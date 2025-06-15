@@ -83,7 +83,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 
-                <TextBlock Grid.Row="0" Text="Популярные треки" Style="{StaticResource YandexTextBlockHeaderStyle}"/>
+                <TextBlock Grid.Row="0" Text="Музыкальные треки" Style="{StaticResource YandexTextBlockHeaderStyle}"/>
                 
                 <ListView Grid.Row="1" x:Name="TracksListView" 
                           ItemsSource="{Binding _tracks}" 

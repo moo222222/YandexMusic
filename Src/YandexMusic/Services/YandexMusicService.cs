@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Yandex.Music.Api;
 using Yandex.Music.Api.Common;
+using Yandex.Music.Api.Models.Account;
 using Yandex.Music.Api.Models.Album;
 using Yandex.Music.Api.Models.Artist;
 using Yandex.Music.Api.Models.Landing;
@@ -41,8 +42,10 @@ namespace YandexMusicUWP.Services
                 AuthStorage authStorage = new AuthStorage
                 {
                     //TODO
-                    //Login = login,
-                    //Password = password
+                    //User = login,
+                    Token = password,
+                    IsAuthorized = true,
+
                 };
 
                 // Fix: Explicitly await the task and handle the result properly
@@ -67,10 +70,16 @@ namespace YandexMusicUWP.Services
         {
             try
             {
-                _auth.Token = token;
-                //TODO
-                //var userInfo = await _api.User.GetUserInfoAsync(_auth);
-                //_auth.User = userInfo.Result;
+                //_auth.Token = token;
+
+                Yandex.Music.Api.Common.AuthStorage _auth = new Yandex.Music.Api.Common.AuthStorage()
+                {
+                    IsAuthorized = true,
+                    Token = token,
+                };
+
+                var userInfo = await _api.User.GetUserAuthAsync(_auth);  
+                _auth.User = userInfo.Result.Account;
                 return true;
             }
             catch (Exception ex)
@@ -195,15 +204,22 @@ namespace YandexMusicUWP.Services
         {
             try
             {
-                //TODO
-                ObservableCollection<YPlaylist> info = default;
-                //var info = await _api.Track.GetDownloadInfoAsync(_auth, trackId);
-                //if (info.Result.Count > 0)
-                //{
-                //    var downloadInfo = info.Result[0];
-                //    var downloadUrl = await _api.Track.GetDownloadUrlAsync(_auth, downloadInfo);
-                //    return downloadUrl.Result.ToString();
-                //}
+                // Fetch metadata for the track download
+                var metadataResponse = await _api.Track.GetMetadataForDownloadAsync(_auth, trackId);
+
+                if (metadataResponse.Result != null && metadataResponse.Result.Count > 0)
+                {
+                    // Use the first available download info
+                    var downloadInfo = metadataResponse.Result[0];
+
+                    // Fetch the download file info using the download metadata
+                    var downloadFileInfo = await _api.Track.GetDownloadFileInfoAsync(_auth, downloadInfo);
+
+                    // Build the download URL using the file info
+                    var downloadUrl = _api.Track.BuildLinkForDownload(downloadInfo, downloadFileInfo);
+
+                    return downloadUrl;
+                }
 
                 return null;
             }
