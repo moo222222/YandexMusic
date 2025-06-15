@@ -7,9 +7,6 @@ My 2nd attemt to remake YandexMusic uwp pp. This is planned as very lite edition
 ## Abstract
 At now this thing allows you to get some music analytics music through Yandex integration in the simplest uwp app for Windows 10 / 11.
 
-## Screensho(s)
-![Win11Lite](Images/shot01.png)
-![W10M](Images/shot02.png)
 
 ## Solution (app) structure
 - Special uap version of Yandex.Music.Api lib (Win SDK 16299 used. draft)
