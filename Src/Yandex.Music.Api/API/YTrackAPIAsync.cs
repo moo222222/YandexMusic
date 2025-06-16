@@ -300,15 +300,7 @@ namespace Yandex.Music.Api.API
             return ExtractStreamAsync(storage, track.GetKey().ToString());
         }
 
-        /*public async Task GetDownloadUrlAsync(AuthStorage auth, object downloadInfo)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task GetDownloadInfoAsync(AuthStorage auth, string trackId)
-        {
-            throw new NotImplementedException();
-        }*/
+           
 
         #endregion В поток
 

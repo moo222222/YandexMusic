@@ -16,12 +16,12 @@
         </Grid.RowDefinitions>
 
         <!-- Заголовок -->
-        <StackPanel Grid.Row="0" Background="{StaticResource YandexYellowBrush}" Padding="12,8">
+        <StackPanel Grid.Row="0" Background="{StaticResource YandexBrush}" Padding="12,8">
             <TextBlock Text="Авторизация" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" Margin="0,12"/>
         </StackPanel>
 
         <!-- Форма авторизации -->
-        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="400" Padding="24">
+        <!--StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="400" Padding="24">
             <Image Source="/Assets/yandex_music_logo.svg" Width="150" Height="150" Margin="0,0,0,24"/>
             
             <TextBlock Text="Войдите в аккаунт Яндекс" Style="{StaticResource YandexTextBlockHeaderStyle}" HorizontalAlignment="Center"/>
@@ -30,8 +30,7 @@
             
             <PasswordBox x:Name="PasswordBox" Header="Пароль" Margin="0,12,0,0" PlaceholderText="Введите пароль"/>
             
-            <!--CheckBox x:Name="RememberMeCheckBox" Content="Запомнить меня" Margin="0,12,0,0"/-->
-            
+                  
             <Button x:Name="LoginButton" Content="Войти" Style="{StaticResource YandexButtonStyle}" 
                     HorizontalAlignment="Stretch" Margin="0,24,0,0" Click="LoginButton_Click"/>
             
@@ -41,7 +40,26 @@
             
             <Button x:Name="TokenLoginButton" Content="Войти по токену" 
                     HorizontalAlignment="Stretch" Margin="0,0,0,0" Click="TokenLoginButton_Click"/>
+        </StackPanel-->
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+            <TextBlock Text="Авторизация по токену доступа" FontSize="20" Margin="0,0,0,20"/>
+
+            <TextBox x:Name="TokenBox" PlaceholderText="Введите токен доступа" 
+                     Margin="0,0,0,10"/>
+
+            <Button Content="Сохранить токен и авторизоваться" Click="SaveToken_Click"
+                    HorizontalAlignment="Stretch" Background="#FFCC0000" Foreground="White"/>
+
+            <TextBlock Text="Как получить токен:" Margin="0,20,0,5" FontWeight="Bold"/>
+            <TextBlock TextWrapping="Wrap">
+                <Run Text="1. Откройте Яндекс.Музыку в браузере"/>
+                <LineBreak/>
+                <Run Text="2. Нажмите F12 (Режим разработчика), откройте вкладку 'Application'"/>
+                <LineBreak/>
+                <Run Text="3. В разделе Cookies скопируйте значение 'access_token'"/>
+            </TextBlock>
         </StackPanel>
+
 
         <!-- Нижняя панель -->
         <StackPanel Grid.Row="2" Background="{StaticResource YandexLightGrayBrush}" Padding="12,8">

@@ -1,9 +1,12 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Windows.Media.Playback;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Yandex.Music.Api.Models.Track;
 using YandexMusicUWP.Models;
 using YandexMusicUWP.Services;
 
@@ -18,6 +21,7 @@ namespace YandexMusicUWP
         private YandexMusicService _musicService;
         private Track _currentTrack;
         private ObservableCollection<Track> _tracks;
+        public string savedToken;
 
         public MainPage()
         {
@@ -42,7 +46,7 @@ namespace YandexMusicUWP
             base.OnNavigatedTo(e);
 
             // Проверяем, есть ли сохраненный токен
-            string savedToken = _musicService.LoadToken();
+            /*string*/savedToken = _musicService.LoadToken();
             if (!string.IsNullOrEmpty(savedToken))
             {
                 // Пытаемся авторизоваться по токену
@@ -118,6 +122,37 @@ namespace YandexMusicUWP
         /// <summary>
         /// Обработчик поиска треков
         /// </summary>
+        /* private async void SearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+         {
+             string query = args.QueryText;
+             if (!string.IsNullOrEmpty(query))
+             {
+                 // Fetch the tracks from the service
+                 var tracks = await _musicService.SearchTracksAsync(query);
+
+                 // Convert List<YTrack> to ObservableCollection<Track>
+                 _tracks = new ObservableCollection<Track>(
+                     tracks.Select(track => new Track
+                     {
+                         Id = track.Id,
+                         Title = track.Title,
+                         Artist = track.Artist, // //Artists = track.Artists?.Select(artist => new YArtist { Name = artist.Name }).ToList(),
+                         Album = track.Album,
+                         DurationMs = track.DurationMs,
+                         CoverUri = track.CoverUri
+                     })
+                 );
+
+                 // Update the UI with the converted tracks
+                 TracksListView.ItemsSource = _tracks.Select(t => new
+                 {
+                     t.Title,
+                     t.Artist,//Artist = string.Join(", ", t.Artist?.Select(a => a.Name) ?? Enumerable.Empty<string>()),
+                     t.Id
+                 });
+             }
+         }*/
+
         private async void SearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
             string query = args.QueryText;
@@ -129,5 +164,8 @@ namespace YandexMusicUWP
                 TracksListView.ItemsSource = _tracks;
             }
         }
+
+
+
     }
 }

@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
 
         <!-- Заголовок -->
-        <Grid Grid.Row="0" Background="{StaticResource YandexYellowBrush}" Padding="12,8">
+        <Grid Grid.Row="0" Background="{StaticResource YandexBrush}" Padding="12,8">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>

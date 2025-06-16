@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Yandex.Music.Api.Models.Artist;
 
 namespace YandexMusicUWP.Models
 {
@@ -139,6 +140,9 @@ namespace YandexMusicUWP.Models
         /// URL обложки трека
         /// </summary>
         public string CoverUrl => !string.IsNullOrEmpty(CoverUri) ? $"https://{CoverUri.Replace("%%", "200x200")}" : null;
+
+        public long DurationMs { get; internal set; }
+        public List<YArtist> Artists { get; internal set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

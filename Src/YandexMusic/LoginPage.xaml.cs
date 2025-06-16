@@ -17,41 +17,40 @@ namespace YandexMusicUWP
         {
             this.InitializeComponent();
             _musicService = new YandexMusicService();
+            
         }
 
+      
         /// <summary>
-        /// Обработчик нажатия на кнопку "Войти"
+        /// Обработчик нажатия на кнопку "Войти по токену"
         /// </summary>
-        private async void LoginButton_Click(object sender, RoutedEventArgs e)
+        //private async void TokenLoginButton_Click(object sender, RoutedEventArgs e)
+        private async void SaveToken_Click(object sender, RoutedEventArgs e)
         {
+                       
+            string token = TokenBox.Text;
+
+            if (string.IsNullOrEmpty(token))
+            {
+                ShowError("Введите токен");
+                return;
+            }
+
             try
             {
-                string login = LoginTextBox.Text;
-                string password = PasswordBox.Password;
-
-                if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
-                {
-                    ShowError("Введите логин и пароль");
-                    return;
-                }
-
-                // Показываем индикатор загрузки
-                LoginButton.IsEnabled = false;
-                LoginButton.Content = "Выполняется вход...";
-
-                // Авторизация через сервис
-                bool success = await _musicService.AuthorizeAsync(login, password);
-                
+                // Авторизация по токену через сервис
+                bool success = await _musicService.AuthorizeByTokenAsync(token);
+                    
                 if (!success)
                 {
-                    ShowError("Не удалось авторизоваться. Проверьте логин и пароль.");
+                    ShowError("Не удалось авторизоваться. Проверьте токен.");
                     return;
                 }
 
                 // Сохраняем токен, если пользователь выбрал "Запомнить меня"
                 if (true)//(RememberMeCheckBox.IsChecked == true)
                 {
-                    _musicService.SaveToken();
+                    _musicService.SaveToken(token);
                 }
 
                 // Переходим на главную страницу
@@ -59,67 +58,9 @@ namespace YandexMusicUWP
             }
             catch (Exception ex)
             {
-                ShowError($"Ошибка авторизации: {ex.Message}");
+                ShowError($"Ошибка авторизации по токену: {ex.Message}");
             }
-            finally
-            {
-                // Восстанавливаем кнопку
-                LoginButton.IsEnabled = true;
-                LoginButton.Content = "Войти";
-            }
-        }
-
-        /// <summary>
-        /// Обработчик нажатия на кнопку "Войти по токену"
-        /// </summary>
-        private async void TokenLoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Создаем диалог для ввода токена
-            ContentDialog tokenDialog = new ContentDialog
-            {
-                Title = "Вход по токену",
-                Content = new TextBox { PlaceholderText = "Введите токен Яндекс.Музыки" },
-                PrimaryButtonText = "Войти",
-                CloseButtonText = "Отмена"
-            };
-
-            ContentDialogResult result = await tokenDialog.ShowAsync();
-
-            if (result == ContentDialogResult.Primary)
-            {
-                string token = (tokenDialog.Content as TextBox).Text;
-
-                if (string.IsNullOrEmpty(token))
-                {
-                    ShowError("Введите токен");
-                    return;
-                }
-
-                try
-                {
-                    // Авторизация по токену через сервис
-                    bool success = await _musicService.AuthorizeByTokenAsync(token);
-                    
-                    if (!success)
-                    {
-                        ShowError("Не удалось авторизоваться. Проверьте токен.");
-                        return;
-                    }
-
-                    // Сохраняем токен, если пользователь выбрал "Запомнить меня"
-                    if (true)//(RememberMeCheckBox.IsChecked == true)
-                    {
-                        _musicService.SaveToken(token);
-                    }
-
-                    // Переходим на главную страницу
-                    Frame.Navigate(typeof(MainPage));
-                }
-                catch (Exception ex)
-                {
-                    ShowError($"Ошибка авторизации по токену: {ex.Message}");
-                }
-            }
+            
         }
 
         /// <summary>
@@ -164,6 +105,7 @@ namespace YandexMusicUWP
             if (!string.IsNullOrEmpty(savedToken))
             {
                 //RememberMeCheckBox.IsChecked = true;
+                TokenBox.Text = savedToken;
             }
         }
     }

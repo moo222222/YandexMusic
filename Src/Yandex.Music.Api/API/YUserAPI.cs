@@ -132,7 +132,12 @@ namespace Yandex.Music.Api.API
         {
             return GetLoginInfoAsync(storage).GetAwaiter().GetResult();
         }
-       
+
+        public async Task GetUserInfoAsync(AuthStorage auth)
+        {
+            throw new NotImplementedException();
+        }
+
 
         #endregion Основные функции
     }
