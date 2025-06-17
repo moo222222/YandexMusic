@@ -48,7 +48,7 @@
                      Margin="0,0,0,10"/>
 
             <Button Content="Сохранить токен и авторизоваться" Click="SaveToken_Click"
-                    HorizontalAlignment="Stretch" Background="#FFCC0000" Foreground="White"/>
+                    HorizontalAlignment="Stretch" Background="{StaticResource YandexBrush}" Foreground="White"/>
 
             <TextBlock Text="Как получить токен:" Margin="0,20,0,5" FontWeight="Bold"/>
             <TextBlock TextWrapping="Wrap">

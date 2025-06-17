@@ -5,17 +5,18 @@
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
    xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
-  IgnorableNamespaces="uap mp">
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+  IgnorableNamespaces="uap mp uap3">
 
   <Identity
     Name="ME.YaMuV1"
     Publisher="CN=Admin"
-    Version="1.0.0.0" />
+    Version="1.1.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="ddca6a77-c70c-48bb-8290-04de0c8cf777" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="ddca6a77-c70c-48b2-8292-04de0c8cf772" PhonePublisherId="00060022-0005-0500-0037-0005100085f2"/>
 
   <Properties>
-    <DisplayName>YaMu v1.0</DisplayName>
+    <DisplayName>YaMu v1.1</DisplayName>
     <PublisherDisplayName>Admin</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -33,7 +34,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="YandexMusic.App">
       <uap:VisualElements
-        DisplayName="YaMu 1.0"
+        DisplayName="YandexMusic 1.1"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="YaMu, experimental music client for Yandex Music"
@@ -52,10 +53,20 @@
           <uap:Rotation Preference="landscapeFlipped"/>
         </uap:InitialRotationPreference>
       </uap:VisualElements>
+      <Extensions>
+        <Extension Category="windows.backgroundTasks" EntryPoint="YandexMusicUWP.BackgroundTasks.BackgroundAudioTask">
+          <BackgroundTasks>
+            <Task Type="audio"/>
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
     </Application>
   </Applications>
 
   <Capabilities>
     <Capability Name="internetClient" />
-  </Capabilities>
+    <uap:Capability Name="musicLibrary" />
+    <uap3:Capability Name="backgroundMediaPlayback"/>
+    <uap3:Capability Name="userNotificationListener"/>
+  </Capabilities>  
 </Package>

@@ -22,20 +22,22 @@ namespace YandexMusicUWP.Services
     public class YandexMusicService
     {
         private readonly YandexMusicApi _api;
-        private AuthStorage _auth;
+        private static string _authToken;
+        private static Yandex.Music.Api.Common.AuthStorage _authStorage = new Yandex.Music.Api.Common.AuthStorage();
 
-        public bool IsAuthorized => _auth != null && !string.IsNullOrEmpty(_auth.Token);
+        //public bool IsAuthorized => _authStorage != null && !string.IsNullOrEmpty(_authStorage.Token);
 
         public YandexMusicService()
         {
             _api = new YandexMusicApi();
-            _auth = new AuthStorage();
+
+            _authToken = LoadToken();           
         }
 
         /// <summary>
         /// Авторизация по логину и паролю
         /// </summary>
-        public async Task<bool> AuthorizeAsync(string login, string password)
+        /*public async Task<bool> AuthorizeAsync(string login, string password)
         {
             try
             {
@@ -52,8 +54,8 @@ namespace YandexMusicUWP.Services
                 await _api.User.AuthorizeAsync(authStorage, password);
                 Yandex.Music.Api.Models.Common.YResponse<Yandex.Music.Api.Models.Account.YAccountResult> userInfo = await _api.User.GetUserAuthAsync(authStorage);
 
-                _auth.User = default;//userInfo.Result;
-                _auth.Token = default;//userInfo.Result.AccessToken;
+                _authStorage.User = default;//userInfo.Result;
+                _authStorage.Token = default;//userInfo.Result.AccessToken;
                 return true;
             }
             catch (Exception ex)
@@ -61,7 +63,7 @@ namespace YandexMusicUWP.Services
                 await ShowErrorAsync($"Ошибка авторизации: {ex.Message}");
                 return false;
             }
-        }
+        }*/
 
         /// <summary>
         /// Авторизация по токену
@@ -69,17 +71,15 @@ namespace YandexMusicUWP.Services
         public async Task<bool> AuthorizeByTokenAsync(string token)
         {
             try
-            {
-                //_auth.Token = token;
-
-                Yandex.Music.Api.Common.AuthStorage _auth = new Yandex.Music.Api.Common.AuthStorage()
+            {               
+                _authStorage = new Yandex.Music.Api.Common.AuthStorage()
                 {
                     IsAuthorized = true,
                     Token = token,
                 };
 
-                var userInfo = await _api.User.GetUserAuthAsync(_auth);  
-                _auth.User = userInfo.Result.Account;
+                var userInfo = await _api.User.GetUserAuthAsync(_authStorage);  
+                _authStorage.User = userInfo.Result.Account;
                 return true;
             }
             catch (Exception ex)
@@ -96,7 +96,7 @@ namespace YandexMusicUWP.Services
         {
             try
             {
-                var landing = await _api.Landing.GetAsync(_auth);
+                var landing = await _api.Landing.GetAsync(_authStorage);
                 var blocks = landing.Result.Blocks;
                 var chartBlock = blocks.FirstOrDefault(b => b.Type == YLandingBlockType.Chart); // chart
 
@@ -129,7 +129,7 @@ namespace YandexMusicUWP.Services
         {
             try
             {
-                ObservableCollection<YPlaylist> playlists = await _api.Playlist.GetFavoritesAsync(_auth);
+                ObservableCollection<YPlaylist> playlists = await _api.Playlist.GetFavoritesAsync(_authStorage);
                 var result = new ObservableCollection<Playlist>();
                 
                 foreach (YPlaylist yPlaylist in playlists)
@@ -153,7 +153,7 @@ namespace YandexMusicUWP.Services
         {
             try
             {
-                var playlist = await _api.Playlist.GetAsync(_auth, userId, playlistId);
+                var playlist = await _api.Playlist.GetAsync(_authStorage, userId, playlistId);
                 var tracks = new ObservableCollection<Track>();
 
                 foreach (var yTrack in playlist.Result.Tracks)
@@ -177,7 +177,7 @@ namespace YandexMusicUWP.Services
         {
             try
             {
-                var searchResult = await _api.Search.TrackAsync(_auth, query);
+                var searchResult = await _api.Search.TrackAsync(_authStorage, query);
                 var tracks = new ObservableCollection<Track>();
 
                 if (searchResult.Result.Tracks != null)
@@ -205,7 +205,7 @@ namespace YandexMusicUWP.Services
             try
             {
                 // Fetch metadata for the track download
-                var metadataResponse = await _api.Track.GetMetadataForDownloadAsync(_auth, trackId);
+                var metadataResponse = await _api.Track.GetMetadataForDownloadAsync(_authStorage, trackId);
 
                 if (metadataResponse.Result != null && metadataResponse.Result.Count > 0)
                 {
@@ -213,7 +213,7 @@ namespace YandexMusicUWP.Services
                     var downloadInfo = metadataResponse.Result[0];
 
                     // Fetch the download file info using the download metadata
-                    var downloadFileInfo = await _api.Track.GetDownloadFileInfoAsync(_auth, downloadInfo);
+                    var downloadFileInfo = await _api.Track.GetDownloadFileInfoAsync(_authStorage, downloadInfo);
 
                     // Build the download URL using the file info
                     var downloadUrl = _api.Track.BuildLinkForDownload(downloadInfo, downloadFileInfo);
@@ -286,14 +286,14 @@ namespace YandexMusicUWP.Services
         /// <summary>
         /// Сохранение токена в локальные настройки
         /// </summary>
-        public void SaveToken()
+        /*public void SaveToken()
         {
-            if (!string.IsNullOrEmpty(_auth.Token))
+            if (!string.IsNullOrEmpty(_authStorage.Token))
             {
                 Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-                localSettings.Values["YandexMusicToken"] = _auth.Token;
+                localSettings.Values["YandexMusicToken"] = _authStorage.Token;
             }
-        }
+        }*/
 
         /// <summary>
         /// Сохранение указанного токена в локальные настройки
